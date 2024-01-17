@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+    <head>
+        <title>Create 3p cookie</title>
+    </head>
+    <body>
+        <script>
+            (function () {
+                if (!window.parent) return;
+                var msg = /thirdPartyCookie=true/.test(document.cookie)
+                    ? "3pcSupported"
+                    : "3pcUnsupported";
+                window.parent.postMessage(msg, "*");
+            })();
+        </script>
+    </body>
+</html>
